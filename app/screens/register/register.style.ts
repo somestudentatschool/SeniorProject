@@ -13,5 +13,14 @@ export const registerStyle = StyleSheet.create({
         margin: 15,
         marginRight:0,
         marginLeft:0
-    }
+    },
+    background:{
+        backgroundColor: "rgb(154,42,42)"
+    },
+    Title: {
+        fontWeight: "bold",
+        color: "rgb(64,64,64)",
+        fontSize: 24,
+        
+    },
 })
