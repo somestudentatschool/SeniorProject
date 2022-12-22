@@ -4,7 +4,7 @@ import { Card, TextInput, Button, Text } from 'react-native-paper';
 import { loginStyle } from './login.style';
 
 export const LoginScreen = () => {
-    //I WAS HERE AND GIT WORKS
+    //I WAS HERE AND GIT WORKS V2
 
     return (
         <SafeAreaView style = {loginStyle.content}>
