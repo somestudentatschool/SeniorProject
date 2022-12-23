@@ -9,34 +9,19 @@
  */
 
  import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
 import { Provider as PaperProvider, TextInput } from 'react-native-paper';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
 import { LoginScreen } from './app/screens/login/login.screen';
 import { theme } from './App.style';
 import HomeScreen from './app/screens/home/home.screen';
 import { RegisterScreen } from './app/screens/register/register.screen';
+import LateLessNavigator from './app/app.navigator';
 
 const App = () => {
   return (
     <PaperProvider theme = {theme}>
-      <RegisterScreen/>
+      <LateLessNavigator />
     </PaperProvider>
   );
 };

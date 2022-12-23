@@ -4,8 +4,13 @@ import { Appbar, Button, TextInput} from "react-native-paper";
 import { Header } from "react-native/Libraries/NewAppScreen";
 import { registerStyle } from "./register.style";
 
+interface RegisterScreenProps {
+    navigation: any;
+}
 
-export const RegisterScreen = () => {
+export const RegisterScreen = (props: RegisterScreenProps) => {
+
+    const register = () => props.navigation.navigate("Home")
 
     return(
         <SafeAreaView>
@@ -19,7 +24,7 @@ export const RegisterScreen = () => {
                     <TextInput label="Password" secureTextEntry={true} right = {<TextInput.Icon icon="eye-off-outline" color = {registerStyle.icon.color}/> }/>
                     <TextInput label="Confirm Password" secureTextEntry={true} right = {<TextInput.Icon icon="eye-off-outline" color = {registerStyle.icon.color}/> }/>
                     <TextInput label="Phone Number" keyboardType="phone-pad"/>
-                    <Button mode = "contained" style = {registerStyle.button}>Register</Button>
+                    <Button onPress = {register} mode = "contained" style = {registerStyle.button}>Register</Button>
             </ScrollView>
         </SafeAreaView>
     );
