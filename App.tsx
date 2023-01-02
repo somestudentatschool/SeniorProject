@@ -7,8 +7,8 @@
  *
  * @format
  */
-
- import React from 'react';
+import 'react-native-gesture-handler';
+import React from 'react';
 
 import { Provider as PaperProvider, TextInput } from 'react-native-paper';
 

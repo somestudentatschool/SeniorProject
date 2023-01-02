@@ -1,11 +1,15 @@
 import React, { Component, useEffect, useState } from "react";
-import { StyleSheet, View, SafeAreaView, PermissionsAndroid } from "react-native";
+import { StyleSheet, View, SafeAreaView, PermissionsAndroid, Text } from "react-native";
 import MapboxGL from "@rnmapbox/maps";
 import { styleExtras } from "@rnmapbox/maps/javascript/utils/styleMap";
 import { homeStyle } from "./home.style";
+import { Appbar, Button} from "react-native-paper";
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 MapboxGL.setWellKnownTileServer("Mapbox");
 MapboxGL.setAccessToken("sk.eyJ1IjoiZGVyYW5nZWQwMSIsImEiOiJjbDkzemtjOWQxeTBrM3Vuemx1NHIzdjA4In0.SovOvhWdZ79MsJ7dHcjXtA");
+
+const Drawer = createDrawerNavigator();
 
 const requestLocationPermission = async () => {
   try {
@@ -23,7 +27,15 @@ const requestLocationPermission = async () => {
   }
 };
 
-const HomeScreen=()=>{
+function DrawerContent() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Side menu</Text>
+    </View>
+  );
+}
+
+const HomeMenu=()=>{
   useEffect(() =>{requestLocationPermission()},[]);
   //these are the coordinates to display. Its array form so pay 
   //attention to the {[]} sytax
@@ -48,6 +60,14 @@ const HomeScreen=()=>{
         </MapboxGL.MapView>
           </View>
       </SafeAreaView>
+  )
+}
+
+const HomeScreen=()=>{
+  return(
+    <Drawer.Navigator drawerContent={() => <DrawerContent />}>
+      <Drawer.Screen name="Home" component={HomeMenu} />
+    </Drawer.Navigator>
   )
 }
 

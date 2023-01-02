@@ -30,12 +30,10 @@ export const RegisterScreen = (props: RegisterScreenProps) => {
     //NAVIGATION
 
     const register = () => props.navigation.navigate("Home")
-
     return(
         <SafeAreaView>
             <ScrollView>
                 <Appbar>
-                    <Appbar.BackAction />
                     <Appbar.Content title ="Register" />
                 </Appbar>
                     <TextInput label="Name" onChangeText={(val)=>setName(val)}/>
