@@ -5,11 +5,22 @@ import { styleExtras } from "@rnmapbox/maps/javascript/utils/styleMap";
 import { homeStyle } from "./home.style";
 import { Appbar, Button} from "react-native-paper";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { EventCreationScreen } from "../eventCreation/eventCreation.screen";
 
 MapboxGL.setWellKnownTileServer("Mapbox");
 MapboxGL.setAccessToken("sk.eyJ1IjoiZGVyYW5nZWQwMSIsImEiOiJjbDkzemtjOWQxeTBrM3Vuemx1NHIzdjA4In0.SovOvhWdZ79MsJ7dHcjXtA");
 
+// Interface for home screen props
+
+interface HomeScreenProps {
+  navigation: any;
+}
+
+// Drawer navigator for the side menu
+
 const Drawer = createDrawerNavigator();
+
+// Permission request
 
 const requestLocationPermission = async () => {
   try {
@@ -27,13 +38,8 @@ const requestLocationPermission = async () => {
   }
 };
 
-function DrawerContent() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Side menu</Text>
-    </View>
-  );
-}
+// Content for the side menu
+
 
 const HomeMenu=()=>{
   useEffect(() =>{requestLocationPermission()},[]);
@@ -63,10 +69,13 @@ const HomeMenu=()=>{
   )
 }
 
+// This is where the drawer content goes
+
 const HomeScreen=()=>{
   return(
-    <Drawer.Navigator drawerContent={() => <DrawerContent />}>
-      <Drawer.Screen name="Home" component={HomeMenu} />
+    <Drawer.Navigator initialRouteName="Home Menu">
+      <Drawer.Screen name="Home Menu" component={HomeMenu} options = {{ title: 'Home Menu', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}/>
+      <Drawer.Screen name= "Event Menu" component={EventCreationScreen}></Drawer.Screen> 
     </Drawer.Navigator>
   )
 }
