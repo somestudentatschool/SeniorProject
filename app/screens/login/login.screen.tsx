@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import { SafeAreaView, View } from 'react-native';
+import { SafeAreaView, View, Alert } from 'react-native';
 import { Card, TextInput, Button, Text } from 'react-native-paper';
+import { validatePassword, validateEmail } from '../../logic/validators';
 import { loginStyle } from './login.style';
 
 interface LoginScreenProps {
@@ -16,7 +17,17 @@ export const LoginScreen = (props: LoginScreenProps) => {
 
     //EVENT HANDLERS
     const loginClickHandler = () => {
-        //logic would go here
+        let resultEmail = validateEmail(email);
+        if(resultEmail.length!=0){
+            Alert.alert(`Invalid Entry: ${resultEmail}`);
+            return;
+        }
+        let resultPass = validatePassword(email);
+        if(resultPass.length!=0){
+            Alert.alert(`Invalid Entry: ${resultPass}`);
+            return;
+        }
+        //TODO: DB CODER
         console.log(email);
         console.log(password);
         login();
