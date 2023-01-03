@@ -17,6 +17,7 @@ import { theme } from './App.style';
 import HomeScreen from './app/screens/home/home.screen';
 import { RegisterScreen } from './app/screens/register/register.screen';
 import LateLessNavigator from './app/app.navigator';
+import { EventCreationScreen } from './app/screens/eventCreation/eventCreation.screen';
 
 const App = () => {
   return (
