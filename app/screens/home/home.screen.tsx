@@ -6,6 +6,7 @@ import { homeStyle } from "./home.style";
 import { Appbar, Button} from "react-native-paper";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { EventCreationScreen } from "../eventCreation/eventCreation.screen";
+import ListFriends from "../friendList/showFriends";
 
 MapboxGL.setWellKnownTileServer("Mapbox");
 MapboxGL.setAccessToken("sk.eyJ1IjoiZGVyYW5nZWQwMSIsImEiOiJjbDkzemtjOWQxeTBrM3Vuemx1NHIzdjA4In0.SovOvhWdZ79MsJ7dHcjXtA");
@@ -37,9 +38,6 @@ const requestLocationPermission = async () => {
     console.warn(err)
   }
 };
-
-// Content for the side menu
-
 
 const HomeMenu=()=>{
   useEffect(() =>{requestLocationPermission()},[]);
@@ -73,9 +71,14 @@ const HomeMenu=()=>{
 
 const HomeScreen=()=>{
   return(
-    <Drawer.Navigator initialRouteName="Home Menu">
+    <Drawer.Navigator initialRouteName="Home Menu" screenOptions={{
+      drawerStyle: {
+        backgroundColor: 'rgb(154,42,42)',
+        width: 240,
+      },}}>
       <Drawer.Screen name="Home Menu" component={HomeMenu} options = {{ title: 'Home Menu', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}/>
-      <Drawer.Screen name= "Event Menu" component={EventCreationScreen}></Drawer.Screen> 
+      <Drawer.Screen name= "Event Menu" component={EventCreationScreen} options = {{ title: 'Event Menu', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}></Drawer.Screen>
+      <Drawer.Screen name= "Friend List" component={ListFriends} options = {{ title: 'Friends List', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}></Drawer.Screen>  
     </Drawer.Navigator>
   )
 }
