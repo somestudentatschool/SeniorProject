@@ -30,7 +30,7 @@ export const EventCreationScreen =  (props: EventScreenProps) => {
                 </Appbar>
                     <TextInput label="Name" onChangeText={(val)=>setName}/>
                     <TextInput label="Address" onChangeText={(val)=>setAddress}/>
-                    <Button onPress = {EventCreationClickHandler} mode = "contained" style = {eventCreationStyle.button}>Creat Event</Button>
+                    <Button onPress = {EventCreationClickHandler} mode = "contained" style = {eventCreationStyle.button}>Create Event</Button>
             </ScrollView>
         </SafeAreaView>
     );
