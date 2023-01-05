@@ -25,5 +25,10 @@ export const loginStyle = StyleSheet.create({
     },
     text: {
         color: "rgb(0,71,100)"
+    },
+    warningText:{
+        color: "rgb(154,42,42)",
+        fontSize: 14,
+        fontWeight: "bold"
     }
 })

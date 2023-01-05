@@ -11,6 +11,7 @@ interface LoginScreenProps {
 
 export const LoginScreen = (props: LoginScreenProps) => {
     //STATES
+    const [state, setState] = useState(1)
     const [email, setEmail] = useState('XXX');
     const [password, setPassword] = useState('XXX'); 
 
@@ -20,11 +21,13 @@ export const LoginScreen = (props: LoginScreenProps) => {
         let resultEmail = validateEmail(email);
         if(resultEmail.length!=0){
             Alert.alert(`Invalid Entry: ${resultEmail}`);
+            setState(2)
             return;
         }
         let resultPass = validatePassword(email);
         if(resultPass.length!=0){
             Alert.alert(`Invalid Entry: ${resultPass}`);
+            setState(2)
             return;
         }
         //TODO: DB CODER
@@ -43,6 +46,9 @@ export const LoginScreen = (props: LoginScreenProps) => {
                 <Card>
                     <Card.Title title="LateLess" titleStyle={loginStyle.cardTitle}></Card.Title>
                     <Card.Content>
+                        { state == 2 ?
+                            <Text style = {loginStyle.warningText}> Incorrect Username or Password</Text>
+                        : null}
                         <TextInput label = "Email" keyboardType = "email-address" onChangeText={(val)=>setEmail(val)}></TextInput>
                         <TextInput label = "Password" secureTextEntry = {true} onChangeText={(val)=>setPassword(val)}></TextInput>
                         <Button uppercase = {false} style = {loginStyle.cardButton}>

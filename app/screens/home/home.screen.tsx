@@ -7,6 +7,7 @@ import { Appbar, Button} from "react-native-paper";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { EventCreationScreen } from "../eventCreation/eventCreation.screen";
 import ListFriends from "../friendList/showFriends";
+import { AttendeePopupCard } from "../../components/attendee-popup";
 
 MapboxGL.setWellKnownTileServer("Mapbox");
 MapboxGL.setAccessToken("sk.eyJ1IjoiZGVyYW5nZWQwMSIsImEiOiJjbDkzemtjOWQxeTBrM3Vuemx1NHIzdjA4In0.SovOvhWdZ79MsJ7dHcjXtA");
@@ -45,6 +46,9 @@ const HomeMenu=()=>{
   //attention to the {[]} sytax
   //ALSO: please remember, coordinates are in format LONGITUDE,LATITUDE in Mapbox
   const [coordinates] = useState([-97.2, 32.8]);
+  const [state, setState] = useState(1);
+
+
 
   //MapView is the map BUT Camera is the 
   //visual MAP. YOU CANNOT CHANGE THE MAPVIEW, modify by altering camera settings
@@ -62,6 +66,11 @@ const HomeMenu=()=>{
           <MapboxGL.PointAnnotation coordinate={[-97, 32]} />
           <MapboxGL.PointAnnotation coordinate={[-98, 32.5]} />
         </MapboxGL.MapView>
+            {
+                state == 2 ?
+                <AttendeePopupCard/>
+                :null
+            }
           </View>
       </SafeAreaView>
   )
