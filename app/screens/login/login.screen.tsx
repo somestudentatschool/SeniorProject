@@ -46,9 +46,12 @@ export const LoginScreen = (props: LoginScreenProps) => {
                 <Card>
                     <Card.Title title="LateLess" titleStyle={loginStyle.cardTitle}></Card.Title>
                     <Card.Content>
+                        
+                        {/*Only renders if state is changed to 2*/}
                         { state == 2 ?
                             <Text style = {loginStyle.warningText}> Incorrect Username or Password</Text>
                         : null}
+
                         <TextInput label = "Email" keyboardType = "email-address" onChangeText={(val)=>setEmail(val)}></TextInput>
                         <TextInput label = "Password" secureTextEntry = {true} onChangeText={(val)=>setPassword(val)}></TextInput>
                         <Button uppercase = {false} style = {loginStyle.cardButton}>
