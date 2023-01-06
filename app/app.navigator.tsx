@@ -6,6 +6,7 @@ import HomeScreen from "./screens/home/home.screen";
 import { RegisterScreen } from "./screens/register/register.screen";
 import { EventCreationScreen } from "./screens/eventCreation/eventCreation.screen";
 
+
 const { Navigator, Screen } = createStackNavigator();
 
 const LateLessNavigator = () => (
