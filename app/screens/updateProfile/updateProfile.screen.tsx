@@ -68,7 +68,7 @@ export const UpdateProfileScreen = (props: UpdateProfileScreenProps) => {
                     <TextInput label="Phone Number" keyboardType="phone-pad" onChangeText={(val)=>setPhone(val)}/>
                     <Button onPress = {registerClickHandler} mode = "contained" style = {updateProfileStyle.button}>Update</Button>
             </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView> 
     );
 
 } 
