@@ -3,7 +3,7 @@ import { Alert, SafeAreaView, ScrollView, View} from "react-native";
 import { Appbar, Button, TextInput} from "react-native-paper";
 import { Header } from "react-native/Libraries/NewAppScreen";
 import { validateEmail, validatePassword, validatePhoneNumber, validateUserName } from "../../logic/validators";
-import { registerStyle } from "./updateProfile.screen";
+import { updateProfileStyle } from "./updateProfile.style";
 
 interface UpdateProfileScreenProps {
     navigation: any;
@@ -63,10 +63,10 @@ export const UpdateProfileScreen = (props: UpdateProfileScreenProps) => {
                 </Appbar>
                     <TextInput label="Name" onChangeText={(val)=>setName(val)}/>
                     <TextInput label="Email" keyboardType="email-address" onChangeText={(val)=>setEmail(val)}/>
-                    <TextInput label="Password" secureTextEntry={true} right = {<TextInput.Icon icon="eye-off-outline" color = {registerStyle.icon.color}/> } onChangeText={(val)=>setPassword(val)}/>
-                    <TextInput label="Confirm Password" secureTextEntry={true} right = {<TextInput.Icon icon="eye-off-outline" color = {registerStyle.icon.color}/> } onChangeText={(val)=>setPassword2(val)}/>
+                    <TextInput label="Password" secureTextEntry={true} right = {<TextInput.Icon icon="eye-off-outline" color = {updateProfileStyle.icon.color}/> } onChangeText={(val)=>setPassword(val)}/>
+                    <TextInput label="Confirm Password" secureTextEntry={true} right = {<TextInput.Icon icon="eye-off-outline" color = {updateProfileStyle.icon.color}/> } onChangeText={(val)=>setPassword2(val)}/>
                     <TextInput label="Phone Number" keyboardType="phone-pad" onChangeText={(val)=>setPhone(val)}/>
-                    <Button onPress = {registerClickHandler} mode = "contained" style = {registerStyle.button}>Register</Button>
+                    <Button onPress = {registerClickHandler} mode = "contained" style = {updateProfileStyle.button}>Update</Button>
             </ScrollView>
         </SafeAreaView>
     );

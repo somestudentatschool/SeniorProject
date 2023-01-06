@@ -9,6 +9,7 @@ import { EventCreationScreen } from "../eventCreation/eventCreation.screen";
 import ListFriends from "../friendList/showFriends";
 import AttendeePopupCard from "../../components/attendee-popup";
 import { Item } from "react-native-paper/lib/typescript/components/Drawer/Drawer";
+import { UpdateProfileScreen } from "../updateProfile/updateProfile.screen";
 
 
 MapboxGL.setWellKnownTileServer("Mapbox");
@@ -95,6 +96,7 @@ const HomeScreen=()=>{
       <Drawer.Screen name="Home Menu" component={HomeMenu} options = {{ title: 'Home Menu', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}/>
       <Drawer.Screen name= "Event Menu" component={EventCreationScreen} options = {{ title: 'Event Menu', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}></Drawer.Screen>
       <Drawer.Screen name= "Friend List" component={ListFriends} options = {{ title: 'Friends List', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}></Drawer.Screen>  
+      <Drawer.Screen name= "Update Profile" component={UpdateProfileScreen} options = {{ title: 'Update Profile', headerStyle: {backgroundColor: "rgb(154,42,42)"}}}></Drawer.Screen>
     </Drawer.Navigator>
   )
 }
