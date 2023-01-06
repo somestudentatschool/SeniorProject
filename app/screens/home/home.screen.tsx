@@ -7,7 +7,9 @@ import { Appbar, Button} from "react-native-paper";
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { EventCreationScreen } from "../eventCreation/eventCreation.screen";
 import ListFriends from "../friendList/showFriends";
-import { AttendeePopupCard } from "../../components/attendee-popup";
+import AttendeePopupCard from "../../components/attendee-popup";
+import { Item } from "react-native-paper/lib/typescript/components/Drawer/Drawer";
+
 
 MapboxGL.setWellKnownTileServer("Mapbox");
 MapboxGL.setAccessToken("sk.eyJ1IjoiZGVyYW5nZWQwMSIsImEiOiJjbDkzemtjOWQxeTBrM3Vuemx1NHIzdjA4In0.SovOvhWdZ79MsJ7dHcjXtA");
@@ -46,7 +48,12 @@ const HomeMenu=()=>{
   //attention to the {[]} sytax
   //ALSO: please remember, coordinates are in format LONGITUDE,LATITUDE in Mapbox
   const [coordinates] = useState([-97.2, 32.8]);
-  const [state, setState] = useState(1);
+  const [state, setState] = useState(2);
+
+  //dummy data
+  const[attendee, setAttendee] = useState([
+    {text: 'Matthew', description: 'on the way'},
+  ]);
 
 
 
@@ -68,7 +75,7 @@ const HomeMenu=()=>{
         </MapboxGL.MapView>
             {
                 state == 2 ?
-                <AttendeePopupCard/>
+                <AttendeePopupCard name = {attendee[0].text} description = {attendee[0].description}/>
                 :null
             }
           </View>

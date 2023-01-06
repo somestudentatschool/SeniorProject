@@ -2,14 +2,15 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import {  Button, Card, IconButton, List} from "react-native-paper"; 
+import { Item } from "react-native-paper/lib/typescript/components/Drawer/Drawer";
 
-export const AttendeePopupCard=(props: any) => {
+export default function AttendeePopupCard(props: any){
     return(
             <Card>
                     <Card.Content>
                         <List.Item
-                            title = "test"
-                            description = "test description"
+                            title = {props.name}
+                            description = {props.description}
                             left = {()=> 
                                 <IconButton
                                     icon = "account-clock"
